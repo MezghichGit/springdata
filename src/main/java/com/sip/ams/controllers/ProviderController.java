@@ -71,10 +71,9 @@ public class ProviderController {
     	
     	//long id2 = 100L;
     	
-        Provider provider = providerRepository.findById(id)
-            .orElseThrow(()-> new IllegalArgumentException("Invalid provider Id:" + id));
+        Provider provider = providerRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("Invalid provider Id:" + id));
         
-        System.out.println("suite du programme...");
+        //System.out.println("suite du programme...");
         
         providerRepository.delete(provider);
         
@@ -97,8 +96,10 @@ public class ProviderController {
 
     
     @PostMapping("update")
-    public String updateProvider(@Valid Provider provider, BindingResult result, Model model) {
-    	
+    public String updateProvider(@Valid Provider provider, BindingResult result) {
+    	if (result.hasErrors()) {
+            return "provider/updateProvider";
+        }
     	
     	providerRepository.save(provider);
     	return"redirect:list";
