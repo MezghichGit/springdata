@@ -48,12 +48,15 @@ public class ProviderController {
     @GetMapping("add")
     public String showAddProviderForm(Model model) {
     	Provider provider = new Provider();// object dont la valeur des attributs par defaut
+    	/*provider.setName("Samsung");
+    	provider.setEmail("Samsung@gmail.com");
+    	provider.setAddress("KOREA");*/
     	model.addAttribute("provider", provider);
         return "provider/addProvider";
     }
     
     @PostMapping("add")
-    public String addProvider(@Valid Provider provider, BindingResult result, Model model) {
+    public String addProvider(@Valid Provider provider, BindingResult result) {
         if (result.hasErrors()) {
             return "provider/addProvider";
         }

@@ -13,7 +13,7 @@ public class Provider {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @NotBlank(message = "Name is mandatory")
+    @NotBlank(message = "Attention, le champs name est vide!")
     @Column(name = "name")
     private String name;
     
