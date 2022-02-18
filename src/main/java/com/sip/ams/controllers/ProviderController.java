@@ -21,9 +21,11 @@ import javax.validation.Valid;
 @RequestMapping("/provider/")
 
 public class ProviderController {
+	/*
+	@Autowired
 	private final ProviderRepository providerRepository;
 	
-	@Autowired
+	
     public ProviderController(ProviderRepository providerRepository) {
         this.providerRepository = providerRepository;
     }
@@ -39,18 +41,13 @@ public class ProviderController {
         model.addAttribute("providers", lp);       
         return "provider/listProviders";
         
-        //
-        //System.out.println(lp);
-        
-        //return "Nombre de fournisseur = " + lp.size();
+       
     }
     
     @GetMapping("add")
     public String showAddProviderForm(Model model) {
     	Provider provider = new Provider();// object dont la valeur des attributs par defaut
-    	/*provider.setName("Samsung");
-    	provider.setEmail("Samsung@gmail.com");
-    	provider.setAddress("KOREA");*/
+   
     	model.addAttribute("provider", provider);
         return "provider/addProvider";
     }
@@ -67,18 +64,11 @@ public class ProviderController {
     
     @GetMapping("delete/{id}")
     public String deleteProvider(@PathVariable("id") long id, Model model) {
-    	
-    	
-    	//long id2 = 100L;
-    	
+
         Provider provider = providerRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("Invalid provider Id:" + id));
-        
-        //System.out.println("suite du programme...");
-        
+
         providerRepository.delete(provider);
-        
-        /*model.addAttribute("providers", providerRepository.findAll());
-        return "provider/listProviders";*/
+
         return "redirect:../list";
     }
     
@@ -104,5 +94,5 @@ public class ProviderController {
     	providerRepository.save(provider);
     	return"redirect:list";
     	
-    }
+    }*/
 }
