@@ -21,7 +21,7 @@ import javax.validation.Valid;
 @RequestMapping("/provider/")
 
 public class ProviderController {
-	/*
+	
 	@Autowired
 	private final ProviderRepository providerRepository;
 	
@@ -94,5 +94,5 @@ public class ProviderController {
     	providerRepository.save(provider);
     	return"redirect:list";
     	
-    }*/
+    }
 }
